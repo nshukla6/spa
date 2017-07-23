@@ -1,0 +1,22 @@
+<h1 class="display-1">Home</h1>
+
+<div class="container">
+    <div ng-show="myVar">
+    <button class="btn btn-danger" ng-click="onPress()">Get Info</button>
+    </div>
+    <div ng-show="load">
+      <div ng-show="!data">
+        <img ng-src="{{image}}" style="width:300px;" alt="progress"/>
+      </div>
+    </div>
+    <div class="panel panel-danger" dir-paginate="d in data | itemsPerPage:5">
+{{$index+1}}
+        <div class="panel-heading">{{d.name}}</div>
+        <div class="panel-body">{{d.email}}</div>
+        <div class="panel-footer">
+            <a href="/api" class="btn btn-danger btn-sm">Agree</a>
+            <a href="/api" class="btn btn-default btn-sm">Decline</a>
+        </div>
+    </div>
+    <dir-pagination-controls ng-show="pageDir" max-size="5" direction-links="true" ></dir-pagination-controls>
+</div>
